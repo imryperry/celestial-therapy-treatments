@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Massage and other treatment clinic" />
+    <meta name="keywords" content="Massage, Treatments, Therapy clinic" />
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" media="screen and (max-width: 940px)" href="CSS/mobile.css" />
+    <script src="https://kit.fontawesome.com/f8ccd30550.js" crossorigin="anonymous"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js">
+    </script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css" rel="stylesheet" />
+    <title>Celestial | Massage Clinic</title>
+</head>
+
+<body id="home">
+    <!-- Navbar -->
+    <nav id="navbar">
+        <h1 class="logo">
+            <i class="fas fa-clinic-medical"></i>
+            Celestial Massage Clinic
+        </h1>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#treatments">Treatments</a></li>
+            <li><a href="#team">Our Team</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <!-- Hero image -->
+    <header id="hero">
+        <div class="hero-content">
+            <h1 class="heading-l">Celestial Therapy Treatments</h1>
+            <p class="p-2">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis odit similique modi suscipit itaque
+                nesciunt!
+            </p>
+            <a href="#treatments" class="btn">Read More</a>
+        </div>
+    </header>
+    <!-- Section: Treatments -->
+    <section id="treatments" class="bg-light py-4">
+        <div class="container">
+            <h2 class="heading-l">Our Treatments</h2>
+            <div class="items">
+                <div class="item">
+                    <i class="fab fa-envira fa-2x"></i>
+                    <div>
+                        <h3>Deep Tissue Massage</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, fugit.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <i class="fas fa-hand-holding-medical fa-2x"></i>
+                    <div>
+                        <h3>Deep Tissue Massage</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, fugit.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <i class="fas fa-spa fa-2x"></i>
+                    <div>
+                        <h3>Deep Tissue Massage</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, fugit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Our Team -->
+    <section id="team">
+        <div class="team-img"></div>
+        <div class="team-text bg-dark">
+            <h2 class="heading-l">
+                Our <span class="text-primary">Team</span>
+            </h2>
+            <p class="p-3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea eaque dolorem quae, quia ut nulla cum amet
+                hic fugit debitis earum saepe sint error! Adipisci esse praesentium odio consectetur debitis eius!
+                Ratione aliquam nulla debitis repudiandae praesentium, odio perferendis nemo.
+            </p>
+        </div>
+    </section>
+    <!-- Section: Certified Supplier -->
+    <section id="clients" class="py-4">
+        <div class="container">
+            <h2 class="heading-l">
+                <span class="text-primary">
+                    Certified
+                </span>
+                Treatments Supplier
+            </h2>
+            <div class="items pt-4">
+                <div><img src="./Assets/Images/client1.png" alt="Client 1" /></div>
+                <div><img src="./Assets/Images/client2.png" alt="Client 2" /></div>
+                <div><img src="./Assets/Images/client3.png" alt="Client 3" /></div>
+                <div><img src="./Assets/Images/client4.png" alt="Client 4" /></div>
+                <div><img src="./Assets/Images/client5.png" alt="Client 5" /></div>
+            </div>
+        </div>
+    </section>
+    <!-- Section: Contact -->
+    <section id="contact">
+        <div class="contact-form bg-primary p-2">
+            <h2 class="heading-m">Contact Us</h2>
+            <p>Contact us using the form below</p>
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" />
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="text" name="phone" id="phone" />
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message"></textarea>
+                </div>
+                <input type="submit" value="Send" class="btn btn-dark" />
+            </form>
+        </div>
+        <div id="map" style="width: 70vw;"></div>
+        <script>
+            const cords = [34.771384, 32.062997];
+            mapboxgl.accessToken =
+                'pk.eyJ1Ijoic2h1bGFiYWx1bGEiLCJhIjoiY2xldmUxMHplMDNuZTNzczhhdXV0Y2xieSJ9.k22bdt29G0cyiTCjghjkCA';
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v11',
+                center: cords,
+                zoom: 12,
+            });
+            const popup = new mapboxgl.Popup({ maxWidth: '170px' }).setText(
+                'Celestial Massage Clinic, Rothschild Blvd 22, Tel-Aviv, Israel'
+            );
+            const marker1 = new mapboxgl.Marker()
+                .setLngLat(cords)
+                .setPopup(popup)
+                .addTo(map);
+
+            marker1.togglePopup();
+        </script>
+    </section>
+    <!-- Footer -->
+    <footer id="footer" class="bg-dark py-1">
+        <div class="container">
+            Copyright &copy; 2023 Celestial Therapy Treatments
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
